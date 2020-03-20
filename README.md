@@ -2,6 +2,7 @@
 
 Inspired bei Elixir's `cond` (see [case-cond-and-if](https://elixir-lang.org/getting-started/case-cond-and-if.html#cond)) this is a simpler alternative to `_.cond` from [lodash](https://lodash.com/docs/4.17.15#cond)
 
+[![CI status](https://circleci.com/gh/erikmueller/cond-flow.svg?style=shield)](LINK)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
