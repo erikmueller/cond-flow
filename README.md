@@ -1,6 +1,6 @@
 # cond-flow
 
-Inspired by [Elixir's `cond`](https://elixir-lang.org/getting-started/case-cond-and-if.html#cond)) this is a simpler alternative to [lodash's `_.cond`](https://lodash.com/docs/4.17.15#cond)
+Inspired by [Elixir's `cond`](https://elixir-lang.org/getting-started/case-cond-and-if.html#cond) this is a simpler alternative to [lodash's `_.cond`](https://lodash.com/docs/4.17.15#cond)
 
 [![CI status](https://circleci.com/gh/erikmueller/cond-flow.svg?style=shield)](LINK)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
