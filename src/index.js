@@ -7,7 +7,9 @@ function cond(pairs, options = defaults) {
     return options.strict ? predicate === true : predicate
   })
 
-  return match ? match[1] : null
+  if (!match) return null
+
+  return typeof match[1] === 'function' ? match[1]() : match[1]
 }
 
 module.exports = cond

@@ -33,3 +33,16 @@ test('returns null if no predicate evaluates to true', () => {
 
   expect(value).toBe(null)
 })
+
+test('Accepts functions as value for lazy evaluation', () => {
+  const falseSpy = jest.fn(() => 'false').mockName('falseHandler')
+  const trueSpy = jest.fn(() => 'true').mockName('trueHandler')
+
+  const value = cond([
+    [false, falseSpy],
+    [true, trueSpy]
+  ])
+
+  expect(falseSpy).not.toHaveBeenCalled()
+  expect(value).toBe('true')
+})
