@@ -21,6 +21,15 @@ or
 npm i cond-flow
 ```
 
+## API
+
+```ts
+type Cond = (
+  pairs: Array<[boolean, unknown | (() => unknown)]>,
+  options: { strict: boolean }
+) => unknown
+```
+
 ## Usage
 
 ```js
@@ -52,7 +61,7 @@ const value = cond(
 // value === 'truthy'
 ```
 
-Also works nicely with React:
+Also works nicely with React components as you can have the values lazily evaluated by wrapping it in a function:
 
 ```jsx
 import cond from 'cond-flow'
@@ -60,13 +69,17 @@ import cond from 'cond-flow'
 const Component = ({ isDisabled, isNew, isLoading }) => (
   <>
     {cond([
-      [isLoading, <Loading />],
-      [isNew, <Create />],
+      [isLoading, () => <Loading />],
+      [isNew, () => <Create />],
       [isDisabled, null]
     ])}
   </>
 )
 ```
+
+### Note
+
+As all predicates have to be evaluated before the right branch can be chosen, it can have a negative performance impact if you rely on heavy computations here. It's best have simple booleans and resort to `_.cond` for complex use cases.
 
 ## Development
 
