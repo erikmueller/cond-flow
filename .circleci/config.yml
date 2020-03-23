@@ -11,6 +11,8 @@ jobs:
           steps:
             - run: yarn
             - run: yarn test
+            - run: bash <(curl -s https://codecov.io/bash)
+
 workflows:
     build-and-test:
       jobs:

@@ -4,7 +4,7 @@
   "description": "Elixir style cond for easy javascript control flow",
   "main": "src/index.js",
   "scripts": {
-    "test": "eslint src && jest"
+    "test": "eslint src && jest --collect-coverage"
   },
   "keywords": [
     "cond",
