@@ -6,6 +6,8 @@ Inspired by [Elixir's `cond`](https://elixir-lang.org/getting-started/case-cond-
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
+[![codecov](https://codecov.io/gh/erikmueller/cond-flow/branch/master/graph/badge.svg)](https://codecov.io/gh/erikmueller/cond-flow)
+
 
 ## Install
 
