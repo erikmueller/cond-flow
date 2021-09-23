@@ -1,6 +1,6 @@
 {
   "name": "cond-flow",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Elixir style cond for easy javascript control flow",
   "main": "src/index.js",
   "scripts": {
