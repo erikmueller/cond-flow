@@ -1,5 +1,5 @@
 const defaults = {
-  strict: true
+  strict: true,
 }
 
 function cond(pairs, options = defaults) {
