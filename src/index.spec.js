@@ -7,7 +7,7 @@ test('returns the first value for which the predicate evaluates to true', () => 
     [0, '0'],
     [1, '1'],
     [true, 'true'],
-    [true, 'true but too late']
+    [true, 'true but too late'],
   ])
 
   expect(value).toBe('true')
@@ -20,7 +20,7 @@ test('returns the first value for which the predicate evaluates to truthy', () =
       ['', 'empty'],
       [0, '0'],
       [1, 'truthy'],
-      [true, 'true but too late']
+      [true, 'true but too late'],
     ],
     { strict: false }
   )
@@ -40,7 +40,7 @@ test('Accepts functions as value for lazy evaluation', () => {
 
   const value = cond([
     [false, falseSpy],
-    [true, trueSpy]
+    [true, trueSpy],
   ])
 
   expect(falseSpy).not.toHaveBeenCalled()

@@ -2,9 +2,13 @@
   "name": "cond-flow",
   "version": "0.1.2",
   "description": "Elixir style cond for easy javascript control flow",
+  "repository": {
+    "url": "https://github.com/erikmueller/cond-flow"
+  },
   "main": "src/index.js",
   "scripts": {
-    "test": "eslint src && jest --collect-coverage"
+    "lint": "eslint src",
+    "test": "yarn lint && jest --collect-coverage"
   },
   "keywords": [
     "cond",
@@ -14,15 +18,14 @@
   "author": "Erik Müller",
   "license": "ISC",
   "devDependencies": {
-    "jest": "25.1.0",
-    "eslint": "6.8.0",
-    "eslint-config-prettier": "6.10.0",
-    "eslint-config-standard": "14.1.1",
-    "eslint-plugin-import": "2.20.1",
-    "eslint-plugin-node": "11.0.0",
-    "eslint-plugin-prettier": "3.1.2",
-    "eslint-plugin-promise": "4.2.1",
-    "eslint-plugin-standard": "4.0.1",
-    "prettier": "1.19.1"
+    "eslint": "8.0.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-promise": "5.1.0",
+    "jest": "27.2.5",
+    "prettier": "2.4.1"
   }
 }
