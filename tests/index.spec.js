@@ -1,4 +1,4 @@
-const cond = require('./index')
+const cond = require('../built/index')
 
 test('returns the first value for which the predicate evaluates to true', () => {
   const value = cond([
