@@ -1,5 +1,14 @@
 {
-  "extends": ["standard", "prettier", "plugin:prettier/recommended"],
+  "extends": [
+    "standard-with-typescript",
+    // Let eslint also run prettier...
+    "plugin:prettier/recommended",
+    // ...and turn off the above"s 💅 rules
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": { "project": "./tsconfig.json" },
+  "plugins": ["@typescript-eslint", "tsc"],
   "env": {
     "jest": true
   }

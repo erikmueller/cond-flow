@@ -1,3 +1,7 @@
+// Type guard for function union type
+// see https://github.com/microsoft/TypeScript/issues/37663
+const isFunction = (x: unknown): x is Function => typeof x === 'function'
+
 const defaultOptions = {
   strict: true,
 }
@@ -10,10 +14,8 @@ interface CondOptions {
   strict: boolean
 }
 
-type Conditional<T> = T extends any ? T | (() => T) : never
-
 function cond<T>(
-  pairs: Array<[boolean, Conditional<T>]>,
+  pairs: Array<[unknown, T | (() => T)]>,
   options: CondOptions = defaultOptions
 ): T | null {
   const match = pairs.find(([predicate]) => {
@@ -21,11 +23,11 @@ function cond<T>(
   })
 
   // No condition yielded true
-  if (!match) return null
+  if (match === undefined) return null
 
   const conditional = match[1]
 
-  return typeof conditional === 'function' ? conditional() : conditional
+  return isFunction(conditional) ? conditional() : conditional
 }
 
 export default cond
