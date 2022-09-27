@@ -2,12 +2,10 @@
 
 Inspired by [Elixir's `cond`](https://elixir-lang.org/getting-started/case-cond-and-if.html#cond) this is a simpler alternative to [lodash's `_.cond`](https://lodash.com/docs/4.17.15#cond)
 
-[![CI status](https://circleci.com/gh/erikmueller/cond-flow.svg?style=shield)](LINK)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![codecov](https://codecov.io/gh/erikmueller/cond-flow/branch/master/graph/badge.svg)](https://codecov.io/gh/erikmueller/cond-flow)
-
 
 ## Install
 
@@ -40,7 +38,7 @@ import cond from 'cond-flow'
 const value = cond([
   [false, 'false'],
   [true, 'true'],
-  [true, 'true but too late']
+  [true, 'true but too late'],
 ])
 
 // value === 'true'
@@ -55,7 +53,7 @@ const value = cond(
   [
     [false, 'false'],
     [1, 'truthy'],
-    [true, 'true but also too late']
+    [true, 'true but also too late'],
   ],
   { strict: false }
 )
@@ -73,7 +71,7 @@ const Component = ({ isDisabled, isNew, isLoading }) => (
     {cond([
       [isLoading, () => <Loading />],
       [isNew, () => <Create />],
-      [isDisabled, null]
+      [isDisabled, null],
     ])}
   </>
 )
@@ -81,7 +79,7 @@ const Component = ({ isDisabled, isNew, isLoading }) => (
 
 ### Note
 
-As all predicates have to be evaluated before the right branch can be chosen, it can have a negative performance impact if you rely on heavy computations here. It's best have simple booleans and resort to `_.cond` for complex use cases.
+As all predicates have to be evaluated before the right branch can be chosen, it can have a negative performance impact if you rely on heavy computations. It's best to have simple booleans and resort to [Ramda's](https://ramdajs.com/docs/#cond) `cond` for complex use cases.
 
 ## Development
 
