@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "test": "prettier --check '**/*.(json|js|ts)' && xo && ava",
+    "lint": "rome check",
+    "test": "rome ci src && vitest --run --coverage",
     "prepublish": "npm run build"
   },
   "keywords": [
@@ -23,25 +24,13 @@
     "elixir"
   ],
   "author": "Erik Müller",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "xo": "^0.53.1",
-    "ava": "^5.1.0",
-    "prettier": "2.8.0",
+    "@types/node": "*",
+    "@vitest/coverage-c8": "^0.25.3",
     "typescript": "^4.9.3",
-    "ts-node": "^10.9.1",
-    "@types/node": "*"
+    "vitest": "^0.25.3",
+    "rome": "^10.0.1"
   },
-  "type": "module",
-  "ava": {
-    "extensions": {
-      "ts": "module"
-    },
-    "nodeArguments": [
-      "--loader=ts-node/esm"
-    ]
-  },
-  "xo": {
-    "prettier": true
-  }
+  "type": "module"
 }
