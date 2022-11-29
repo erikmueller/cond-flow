@@ -3,5 +3,6 @@
   "singleQuote": true,
   "arrowParens": "always",
   "tabWidth": 2,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "bracketSpacing": true
 }
