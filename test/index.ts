@@ -2,23 +2,23 @@ import test from 'ava'
 import cond from '../src/index.js'
 
 test('returns the first value for which the predicate evaluates to true', (t) => {
-  const value = cond([
+  const match = cond([
     [false, 'false'],
     [true, 'true'],
     [true, 'true but too late'],
   ])
 
-  t.is(value, 'true')
+  t.is(match, 'true')
 })
 
 test('returns undefined if no predicate evaluates to true', (t) => {
-  const value = cond([[false, 'false']])
+  const match = cond([[false, 'false']])
 
-  t.is(value, undefined)
+  t.is(match, undefined)
 })
 
-test('Accepts functions as value for lazy evaluation', (t) => {
-  const value = cond<string>([
+test('accepts functions as value for lazy evaluation', (t) => {
+  const match = cond([
     [
       false,
       () => {
@@ -29,5 +29,27 @@ test('Accepts functions as value for lazy evaluation', (t) => {
     [true, () => 'true'],
   ])
 
-  t.is(value, 'true')
+  t.is(match, 'true')
+})
+
+test('returns fallback if no condition matches', (t) => {
+  const fallbackWithMatch = cond([[true, () => 'true']], {
+    fallback: () => 'fallback',
+  })
+  const fallbackWithoutMatch = cond([[false, () => 'false']], {
+    fallback: () => 'fallback',
+  })
+
+  t.is(fallbackWithMatch, 'true')
+  t.is(fallbackWithoutMatch, 'fallback')
+
+  const undefinedFallbackWithMatch = cond([[true, () => 'true']], {
+    fallback: undefined,
+  })
+  const undefinedFallbackWithoutMatch = cond([[false, () => 'false']], {
+    fallback: undefined,
+  })
+
+  t.is(undefinedFallbackWithMatch, 'true')
+  t.is(undefinedFallbackWithoutMatch, undefined)
 })
