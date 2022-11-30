@@ -11,23 +11,14 @@ Inspired by [Elixir's `cond`](https://elixir-lang.org/getting-started/case-cond-
 
 Install with npm or yarn via
 
-```
+```sh
 yarn add cond-flow
 ```
 
 or
 
-```
+```sh
 npm i cond-flow
-```
-
-## API
-
-```ts
-type Cond = (
-  pairs: Array<[boolean, unknown | (() => unknown)]>,
-  options: { strict: boolean }
-) => unknown
 ```
 
 ## Usage
@@ -44,23 +35,6 @@ const value = cond([
 // value === 'true'
 ```
 
-You can disable strict checking by passing options as the second argument:
-
-```js
-import cond from 'cond-flow'
-
-const value = cond(
-  [
-    [false, 'false'],
-    [1, 'truthy'],
-    [true, 'true but also too late'],
-  ],
-  { strict: false }
-)
-
-// value === 'truthy'
-```
-
 Also works nicely with React components as you can have the values lazily evaluated by wrapping it in a function:
 
 ```jsx
@@ -75,6 +49,24 @@ const Component = ({ isDisabled, isNew, isLoading }) => (
     ])}
   </>
 )
+```
+
+### Fallback
+
+You can provide a fallback which will be returned if no provided conditions are met.
+
+```js
+import cond from 'cond-flow'
+
+const value = cond(
+  [
+    [false, () => 'false'],
+    [false, () => 'also false'],
+  ],
+  { fallback: () => 'fallback' },
+)
+
+// value === 'fallback'
 ```
 
 ### Note
