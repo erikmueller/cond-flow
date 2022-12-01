@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "rome check",
+    "format": "rome format src",
+    "lint": "rome check src",
     "test": "rome ci src && vitest --run --coverage",
     "prepublish": "npm run build"
   },
