@@ -4,10 +4,10 @@ type Pairs<T> = [boolean, Value<T>][];
 
 type Options<T> = {
 	/**
-	 * If no match is found, the fallback is returned instead.
+	 * If no match is found, the default is returned instead.
 	 * @default undefined
 	 */
-	fallback?: Value<T>;
+	default?: Value<T>;
 };
 
 // Ignoring rule to allow for usage of interface
@@ -16,7 +16,7 @@ interface Cond {
 	<T, F extends undefined>(pairs: Pairs<T>, options?: F): T | undefined;
 	<T, F extends Value<T>>(
 		pairs: Pairs<T>,
-		options?: { fallback: F },
+		options?: { default: F },
 	): F extends Value<T> ? T : T | undefined;
 	<T>(pairs: Pairs<T>, options?: Options<T>): T | undefined;
 }
@@ -32,7 +32,7 @@ function processMatch<T>(match: Value<T>): T {
 
 const cond: Cond = <T, F>(pairs: Pairs<T>, options?: Options<F>) => {
 	const found = pairs.find(([predicate]) => predicate);
-	const match = found === undefined ? options?.fallback : found[1];
+	const match = found === undefined ? options?.default : found[1];
 
 	return processMatch(match);
 };

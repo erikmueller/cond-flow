@@ -19,7 +19,7 @@ it("returns undefined if no predicate evaluates to true", () => {
 
 it("returns provided fallback if no predicate evaluates to true", () => {
 	const value = cond([[false, "false"]], {
-		fallback: () => "fallback",
+		default: () => "fallback",
 	});
 
 	expect(value).toBe("fallback");

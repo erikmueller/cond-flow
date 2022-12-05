@@ -2,7 +2,7 @@
 
 Inspired by [Elixir's `cond`](https://elixir-lang.org/getting-started/case-cond-and-if.html#cond) this is a simpler alternative to [lodash's `_.cond`](https://lodash.com/docs/4.17.15#cond)
 
-[![codecov](https://codecov.io/gh/erikmueller/cond-flow/branch/master/graph/badge.svg)](https://codecov.io/gh/erikmueller/cond-flow)
+[![codecov](https://codecov.io/gh/erikmueller/cond-flow/branch/master/graph/badge.svg?token=WCNYJSZK51)](https://codecov.io/gh/erikmueller/cond-flow)
 
 ## Install
 
@@ -32,7 +32,7 @@ const value = cond([
 // value === 'true'
 ```
 
-Also works nicely with React components as you can have the values lazily evaluated by wrapping it in a function:
+Also works nicely with React components as you can have the values lazily evaluated by wrapping them in a function:
 
 ```jsx
 import cond from 'cond-flow'
@@ -48,9 +48,9 @@ const Component = ({ isDisabled, isNew, isLoading }) => (
 )
 ```
 
-### Fallback
+### Default return value
 
-You can provide a fallback which will be returned if no provided conditions are met.
+You can provide a `default` fallback which will be returned if no provided conditions are met.
 
 ```js
 import cond from 'cond-flow'
@@ -60,7 +60,7 @@ const value = cond(
     [false, () => 'false'],
     [false, () => 'also false'],
   ],
-  { fallback: () => 'fallback' },
+  { default: () => 'fallback' },
 )
 
 // value === 'fallback'
