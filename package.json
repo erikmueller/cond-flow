@@ -1,6 +1,6 @@
 {
   "name": "cond-flow",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Elixir style cond for easy javascript control flow",
   "repository": {
     "url": "https://github.com/erikmueller/cond-flow"
