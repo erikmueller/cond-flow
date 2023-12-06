@@ -16,7 +16,7 @@ interface Cond {
   <T, F extends undefined>(pairs: Pairs<T>, options?: F): T | undefined;
   <T1, F1 extends Value<T1>>(
     pairs: Pairs<T1>,
-    options?: { default: F1 }
+    options?: { default: F1 },
   ): F1 extends Value<T1> ? T1 : T1 | undefined;
   <T2>(pairs: Pairs<T2>, options?: Options<T2>): T2 | undefined;
 }

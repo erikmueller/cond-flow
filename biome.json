@@ -3,8 +3,10 @@
   "organizeImports": {
     "enabled": true
   },
-  "files": {
-    "ignore": ["coverage", "build"]
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
   },
   "linter": {
     "enabled": true,
